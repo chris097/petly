@@ -1,10 +1,14 @@
-import React from 'react'
+import React from 'react';
+import {
+  Box, 
+  Flex
+} from '@chakra-ui/react';
 
 const FooterColor = () => {
   return (
-    <div>
-      Footer color schama
-    </div>
+    <Flex>
+      <Box pos="absolute">Footer 1</Box>
+    </Flex>
   )
 }
 
