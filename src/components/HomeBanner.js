@@ -38,7 +38,7 @@ const HomeBanner = () => {
             color="#344062"
             mt="7px"
           >
-            Pet Adoption is quickly becomingthe preferred way to find a new dog,
+            Pet Adoption is quickly becoming the preferred way to find a new dog,
             puppy, cat or kitten
           </Text>
         </Box>

@@ -28,9 +28,15 @@ const Footer = () => {
           <Box>
             <FooterCol1 />
           </Box>
+          <Box ml="8rem">
+            <FooterCol3 />
+          </Box>
         </Box>
         <Box pos="absolute" right="0">
-          <Box>
+          <Box ml="10rem">
+            <FooterCol2 />
+          </Box>
+          <Box mr="10rem" mt="4rem">
             <FooterCol1 />
           </Box>
         </Box>
@@ -40,7 +46,7 @@ const Footer = () => {
         justifyContent="center" 
         alignContent='center'
       >
-       <Box>
+       <Box mt="5rem">
         <Text fontSize="48px" w="400px">
           Need help with Adopting a pet?
         </Text>
@@ -52,6 +58,8 @@ const Footer = () => {
           mt="1rem" 
           color="#fff" 
           fontSize='14px'
+          _focus={{border: 'none'}}
+          _hover={{ bg: '#0D75FF', opacity: '.7'}}
         >
           View all pets
         </Button>
@@ -62,6 +70,7 @@ const Footer = () => {
         alignContent="center" 
         color="#616681" 
         mx="2rem"
+        mt="5rem"
       >
       <Flex alignItems="center">
       <Box 
@@ -71,6 +80,7 @@ const Footer = () => {
         d="flex"
         justifyContent="center"
         alignItems="center"
+        
       >
         <LogoIcon />
       </Box>
@@ -87,7 +97,7 @@ const Footer = () => {
           <Text ml="2rem">Privacy Policy</Text>
         </Flex>
       </Flex>
-      <Flex justifyContent="center" fontSize="14px" color="#616681">
+      <Flex justifyContent="center" fontSize="14px" color="#616681" mt="2rem" mr="2rem">
         Copyright © 2021 Petly. All rights reserved.
       </Flex>
     </Box>

@@ -13,71 +13,68 @@ import { ReactComponent as LocationIcon } from '../svgs/location-icon.svg';
 
 const Cards = () => {
   return (
-    <Box px="4rem" my="2rem">
-      <Text fontSize="24px">Search Results</Text>
+    <Box 
+      w="327px" 
+      h="323px" 
+      shadow="base"
+      border="1px"
+      borderColor="#F0F6FF"
+      mt="2rem"
+      py="1.5rem"
+    >
       <Box 
-        w="327px" 
-        h="323px" 
-        shadow="base"
-        border="1px"
-        borderColor="#F0F6FF"
-        mt="2rem"
-        py="1.5rem"
+        w="275px" 
+        h="full"
+        mx="auto"
       >
-        <Box 
-          w="275px" 
-          h="full"
-          mx="auto"
+        <Image 
+          w="full" 
+          h="165px" 
+          src={cardImage} 
+          alt="card_image" 
+          objectFit="fill"
+        />
+        <Flex 
+          justifyContent="space-between" 
+          h="70px" 
+          alignItems="center"
         >
-          <Image 
-            w="full" 
-            h="165px" 
-            src={cardImage} 
-            alt="card_image" 
-            objectFit="fill"
-          />
-          <Flex 
-            justifyContent="space-between" 
-            h="70px" 
+          <Box lineHeight="25px">
+            <Text fontSize="24px">Luna</Text>
+            <Text>Havenese</Text>
+          </Box>
+          <Icon><DogIcon /></Icon>
+        </Flex>
+        <Flex justifyContent="space-between" mt="5px">
+          <Button 
+            w="121px"
+            h="39px"
+            rounded="full"
+            bg="#0D75FF" 
             alignItems="center"
+            color="#fff"
+            _hover={{ bg: "#0D75FF", opacity: ".8",}}
+            _focus={{ border: "none"}}
           >
-            <Box lineHeight="25px">
-              <Text fontSize="24px">Luna</Text>
-              <Text>Havenese</Text>
-            </Box>
-            <Icon><DogIcon /></Icon>
-          </Flex>
-          <Flex justifyContent="space-between" mt="5px">
-            <Button 
-              w="121px"
-              h="39px"
-              rounded="full"
-              bg="#0D75FF" 
-              alignItems="center"
-              color="#fff"
-              _hover={{ bg: "#0D75FF", opacity: ".8",}}
-              _focus={{ border: "none"}}
-            >
-              <Text 
-                d="flex" 
-                justifyContent="center" 
-                alignItems="center" 
-                h="full"
-                fontSize="13px"
-              >
-                View Details
-              </Text>
-            </Button>
-            <Flex 
-              alignContent="center" 
+            <Text 
+              d="flex" 
+              justifyContent="center" 
               alignItems="center" 
-              color="#AFB6C1"
+              h="full"
+              fontSize="13px"
             >
-              <LocationIcon />
-              <Text ml=".5rem" fontSize="14px">Seattle, WA</Text>
-            </Flex>
+              View Details
+            </Text>
+          </Button>
+          <Flex 
+            alignContent="center" 
+            alignItems="center" 
+            color="#AFB6C1"
+          >
+            <LocationIcon />
+            <Text ml=".5rem" fontSize="14px">Seattle, WA</Text>
           </Flex>
-        </Box>
+        </Flex>
       </Box>
     </Box>
   )
