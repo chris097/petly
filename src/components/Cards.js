@@ -7,76 +7,99 @@ import {
   Icon,
   Button
 } from '@chakra-ui/react';
-import cardImage from '../images/card-img.png';
+import { 
+  useHistory
+} from 'react-router-dom';
+// import cardImage from '../images/card-img.png';
 import { ReactComponent as DogIcon } from '../svgs/card-dog.svg';
 import { ReactComponent as LocationIcon } from '../svgs/location-icon.svg';
 
-const Cards = () => {
+const Cards = ({
+  isLoading,
+  data,
+  setPetInfo
+}) => {
+
+  const history = useHistory();
+
   return (
-    <Box 
-      w="327px" 
-      h="323px" 
-      shadow="base"
-      border="1px"
-      borderColor="#F0F6FF"
-      mt="2rem"
-      py="1.5rem"
+    <Flex 
+      flexWrap="wrap"
     >
-      <Box 
-        w="275px" 
-        h="full"
-        mx="auto"
-      >
-        <Image 
-          w="full" 
-          h="165px" 
-          src={cardImage} 
-          alt="card_image" 
-          objectFit="fill"
-        />
-        <Flex 
-          justifyContent="space-between" 
-          h="70px" 
-          alignItems="center"
-        >
-          <Box lineHeight="25px">
-            <Text fontSize="24px">Luna</Text>
-            <Text>Havenese</Text>
-          </Box>
-          <Icon><DogIcon /></Icon>
-        </Flex>
-        <Flex justifyContent="space-between" mt="5px">
-          <Button 
-            w="121px"
-            h="39px"
-            rounded="full"
-            bg="#0D75FF" 
-            alignItems="center"
-            color="#fff"
-            _hover={{ bg: "#0D75FF", opacity: ".8",}}
-            _focus={{ border: "none"}}
+      { isLoading ? 'Loading ...' : (data ? data?.map((pet, index) => (
+          <Box 
+            key={index}
+            w="327px" 
+            h="323px" 
+            shadow="base"
+            border="1px"
+            borderColor="#F0F6FF"
+            mt="2rem"
+            mr="1rem"
+            py="1.5rem"
           >
-            <Text 
-              d="flex" 
-              justifyContent="center" 
-              alignItems="center" 
-              h="full"
-              fontSize="13px"
-            >
-              View Details
-            </Text>
-          </Button>
+          <Box 
+            w="275px" 
+            h="full"
+            mx="auto"
+          >
+          <Image 
+            w="full" 
+            h="165px" 
+            src={pet?.images[0]} 
+            alt="card_image" 
+            objectFit="fill"
+          />
           <Flex 
-            alignContent="center" 
-            alignItems="center" 
-            color="#AFB6C1"
+            justifyContent="space-between" 
+            h="70px" 
+            alignItems="center"
           >
-            <LocationIcon />
-            <Text ml=".5rem" fontSize="14px">Seattle, WA</Text>
+            <Box lineHeight="25px">
+              <Text fontSize="24px">{pet?.name}</Text>
+              <Text>{pet?.breed}</Text>
+            </Box>
+            <Icon><DogIcon /></Icon>
           </Flex>
+          <Flex justifyContent="space-between" mt="5px">
+            <Button 
+              w="121px"
+              h="39px"
+              rounded="full"
+              bg="#0D75FF" 
+              alignItems="center"
+              color="#fff"
+              _hover={{ bg: "#0D75FF", opacity: ".8",}}
+              _focus={{ border: "none"}}
+              onClick={() => {
+                history.push(`pets/${pet?.id}`)
+                setPetInfo(pet)
+              }}
+            >
+              <Text 
+                d="flex" 
+                justifyContent="center" 
+                alignItems="center" 
+                h="full"
+                fontSize="13px"
+              >
+                View Details
+              </Text>
+            </Button>
+            <Flex 
+              alignContent="center" 
+              alignItems="center" 
+              color="#AFB6C1"
+            >
+          <LocationIcon />
+          <Text ml=".5rem" fontSize="14px">{pet?.city}</Text>
         </Flex>
-      </Box>
+      </Flex>
     </Box>
+  </Box>
+  )): 'No data...')}   
+    </Flex 
+    >
   )
 }
 

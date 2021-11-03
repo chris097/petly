@@ -12,7 +12,12 @@ import homepageDog4 from '../images/dog4.png';
 import SearchDogs from './SearchDogs';
 import HomepageColor from '../constants/colorSchema/HomepageColor';
 
-const HomeBanner = () => {
+const HomeBanner = ({ 
+  data,
+  setAnimal,
+  setBreed,
+  setLocation
+ }) => {
   return (
     <Box
       w="100%"
@@ -53,7 +58,12 @@ const HomeBanner = () => {
           </Flex>
         </Box>
       </Flex>
-      <SearchDogs />
+      <SearchDogs 
+        data={data} 
+        setAnimal={setAnimal}
+        setBreed={setBreed}
+        setLocation={setLocation}
+      />
       <HomepageColor />
     </Box>
   )

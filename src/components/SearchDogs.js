@@ -10,7 +10,13 @@ import { ReactComponent as BreedIcon } from '../svgs/breed-icon.svg';
 import { ReactComponent as DogIcon } from '../svgs/dog-icon.svg';
 import { ReactComponent as LocationIcon } from '../svgs/location-icon.svg';
 
-const SearchDogs = () => {
+const SearchDogs = ({ 
+  data,
+  setLocation,
+  setAnimal,
+  setBreed
+ }) => {
+
   return (
     <Box
       pos="absolute"
@@ -37,10 +43,11 @@ const SearchDogs = () => {
               w="100%"
               placeholder="Location"
               border="none"
+              onChange={e => setLocation(e.target.value)}
             >
-              <option value="1">Breed1</option>
-              <option value="1">Breed1</option>
-              <option value="1">Breed1</option>
+              {data?.map((pet, index) => (
+                <option key={index} value={pet.city}>{pet.city}</option>
+              ))}
             </Select>
           </Flex>
           <Flex w="150px" whiteSpace="nowrap" mx="2rem">
@@ -49,10 +56,11 @@ const SearchDogs = () => {
               w="100%"
               placeholder="Animal"
               border="none"
+              onChange={e => setAnimal(e.target.value)}
             >
-              <option value="1">Breed1</option>
-              <option value="1">Breed1</option>
-              <option value="1">Breed1</option>
+            {data?.map((pet, index) => (
+              <option key={index} value={pet.animal}>{pet.animal}</option>
+            ))}
             </Select>
           </Flex>
           <Flex w="150px" whiteSpace="nowrap">
@@ -61,10 +69,11 @@ const SearchDogs = () => {
               w="100%"
               placeholder="Breed"
               border="none"
+              onChange={e => setBreed(e.target.value)}
             >
-              <option value="1">Breed1</option>
-              <option value="1">Breed1</option>
-              <option value="1">Breed1</option>
+            {data?.map((pet, index) => (
+              <option key={index} value={pet.breed}>{pet.breed}</option>
+            ))}
             </Select>
           </Flex>
         </Flex>

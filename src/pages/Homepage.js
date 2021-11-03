@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box, 
   Text,
@@ -9,26 +9,80 @@ import Cards from '../components/Cards';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import HomeBanner from '../components/HomeBanner';
-import { ReactComponent as DogIcon } from '../svgs/card-dog.svg';
+// import { ReactComponent as DogIcon } from '../svgs/card-dog.svg';
 import { petTags } from '../constants/data';
+import useData from '../data/useData';
 
-const Homepage = () => {
+const Homepage = ({
+  setPetInfo
+}) => {
+
+  const [ location, setLoaction ] = useState('');
+  const [ breed, setBreed ] = useState('');
+  const [ animal, setAnimal ] = useState('');
+  const [ filterCity, setFilterCity ] = useState('');
+  const [ filterAnimal, setFilterAnimal ] = useState('');
+  const [ filterBreed, setFilterBreed ] = useState('');
+
+  const { data, isLoading } = useData(`pets`);
+
+  useEffect(() => {
+    let petLocation = data?.pets?.filter(pet => pet.city === location);
+    setFilterCity(petLocation)
+  }, [data, location]);
+
+  useEffect(() => {
+    let petLocation = data?.pets?.filter(pet => pet.breed === breed);
+    setFilterBreed(petLocation)
+  }, [data, breed]);
+
+  useEffect(() => {
+    let petLocation = data?.pets?.filter(pet => pet.animal === animal);
+    setFilterAnimal(petLocation)
+  }, [data, animal]);
+
   return (
     <>
       { /* Header */}
       <Header />
        { /* Homepage Banner */}
-      <HomeBanner />
+      <HomeBanner 
+        data={data?.pets} 
+        setAnimal={setAnimal}
+        setBreed={setBreed}
+        setLocation={setLoaction}
+      />
        { /* Cards */}
        <Box px="4rem" my="2rem">
         <Text fontSize="24px">Search Results</Text>
-        <Cards />
+
+        <Cards 
+          isLoading={isLoading}
+          data={data?.pets} 
+          setPetInfo={setPetInfo}
+          />
+
+        <Cards 
+          isLoading={isLoading}
+          data={filterCity} />
+
+        <Cards 
+          isLoading={isLoading}
+          data={filterAnimal}
+        />
+
+        <Cards 
+          isLoading={isLoading}
+          data={filterBreed}
+        />
+
        </Box>
        <Box ml="4rem" mt="4rem">
         <Text fontSize="36px" color="#666879">Browse Though Pet Types</Text>
         <Flex>
           { petTags?.map((petTag, index) => (
             <Box 
+              key={index}
               bg="#F0F6FF" 
               w="80px" 
               h="80px" 
