@@ -125,8 +125,8 @@ const Homepage = () => {
               onClick={() => setCurrentIndex(index)}
             >
               <Box>
-                <Icon w="32px" h="27.13px">{petTag.avatar}</Icon>
-                <Text color="#0D75FF">{petTag.name}</Text>
+                <Icon w="32px" h="27.13px">{petTag?.avatar}</Icon>
+                <Text color="#0D75FF">{petTag?.name}</Text>
               </Box>
             </Box>
           ))}

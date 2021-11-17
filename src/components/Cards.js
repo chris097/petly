@@ -47,7 +47,7 @@ const Cards = ({
           <Image 
             w="full" 
             h="165px" 
-            src={pet?.images[0]} 
+            src={!pet.images ? '?' : pet.images[0]} 
             alt="card_image" 
             objectFit="fill"
           />
