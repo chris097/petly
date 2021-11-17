@@ -4,7 +4,8 @@ import {
   Flex,
   Text,
   Button,
-  Avatar
+  Avatar, 
+  Center
 } from '@chakra-ui/react';
 // import { useParams } from 'react-router-dom';
 // import useData from '../data/useData';
@@ -12,20 +13,20 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ReactComponent as DogIcon } from '../svgs/card-dog.svg';
 import { ReactComponent as LocationIcon } from '../svgs/location-icon.svg';
-// import fullDogImg from '../images/dog5.png';
-// import dog1 from '../images/dog6.png';
-// import dog2 from '../images/dog7.png';
-// import dog3 from '../images/dog8.png';
-// import dog4 from '../images/dog9.png';
+import { useParams } from 'react-router';
+import useData from '../data/useData';
+import Loading from '../components/loading/Loading';
 
-const PetDetails = ({
-  pet
-}) => {
+const PetDetails = () => {
 
+  const { id } = useParams();
+  const { data, isLoading } = useData(`pets?id=${id}`);
+  
   return (
     <>
       <Header />
-        <Box maxWidth="800px" mt="6rem" mx="auto">
+        {isLoading ? <Center mt="10rem"><Loading color="#0D75FF" size={50} /></Center> : data?.pets?.map((pet, index) => (
+          <Box key={index} maxWidth="800px" mt="6rem" mx="auto">
           <Flex justifyContent="space-between" alignItems="center" h="50px">
             <Flex alignItems="center">
               <Avatar name={pet?.name} />
@@ -39,7 +40,7 @@ const PetDetails = ({
           <Box bg="#F8FAFD" w="full" mt="1rem" py=".5rem" px="3rem">
             <Text fontSize="36px" color="#58667E">{pet?.name} pictures</Text>
             <Box w="100%" d="flex" justifyContent="center" bg="#fff" p="1rem" mt="1rem">
-              <img style={{ width: '100%', height: '300px'}} src={pet ? pet?.images[0] : ''} alt="dog_image" />
+              <img style={{ width: '100%', height: '300px'}} src={pet && pet?.images[0]} alt="dog_image" />
             </Box>
             <Flex flexWrap="wrap">
               {pet?.images?.map((image, index) => (
@@ -49,8 +50,7 @@ const PetDetails = ({
             <Box bg="#fff" w="100%" color="#58667E" mt="1rem" p="2rem">
               <Text fontSize="24px">Description</Text>
               <Text fontSize="13px">
-                Clina-Lancet Laboratories is a member of the Lancet Group of Laboratories in 14 African countries.
-                We are ISO 15189:2012 accredited, operating as a 24-hour laboratory in 8 locations in Nigeria across Lagos,
+                {pet?.description}
               </Text>
               <Flex alignItems="center" bg="#F0F6FF" w="120px" justifyContent="center" py="5px" mt="2rem">
                 <LocationIcon />
@@ -72,6 +72,7 @@ const PetDetails = ({
             </Button>
           </Box>
         </Box>
+        ))}
       <Footer />
     </>
   )

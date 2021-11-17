@@ -5,7 +5,8 @@ import {
   Image, 
   Flex, 
   Icon,
-  Button
+  Button, 
+  Center
 } from '@chakra-ui/react';
 import { 
   useHistory
@@ -13,11 +14,11 @@ import {
 // import cardImage from '../images/card-img.png';
 import { ReactComponent as DogIcon } from '../svgs/card-dog.svg';
 import { ReactComponent as LocationIcon } from '../svgs/location-icon.svg';
+import Loading from './loading/Loading';
 
 const Cards = ({
   isLoading,
   data,
-  setPetInfo
 }) => {
 
   const history = useHistory();
@@ -26,7 +27,7 @@ const Cards = ({
     <Flex 
       flexWrap="wrap"
     >
-      { isLoading ? 'Loading ...' : (data ? data?.map((pet, index) => (
+      { isLoading ? <Center><Loading color="#0D75FF" size={50} /></Center> : (data ? data?.map((pet, index) => (
           <Box 
             key={index}
             w="327px" 
@@ -73,7 +74,6 @@ const Cards = ({
               _focus={{ border: "none"}}
               onClick={() => {
                 history.push(`pets/${pet?.id}`)
-                setPetInfo(pet)
               }}
             >
               <Text 

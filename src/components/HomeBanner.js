@@ -18,6 +18,7 @@ const HomeBanner = ({
   setBreed,
   setLocation
  }) => {
+
   return (
     <Box
       w="100%"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,18 +12,15 @@ import PetDetails from './pages/PetDetails';
 
 function App() {
 
-  const [ petInfo, setPetInfo] = useState('');
-  console.log(petInfo.name)
-
   return (
     <ChakraProvider>
       <Router>
         <Switch>
           <Route exact path="/">
-            <Homepage setPetInfo={setPetInfo} />
+            <Homepage />
           </Route>
           <Route path="/pets/:id">
-              <PetDetails pet={petInfo} />
+              <PetDetails />
           </Route>
         </Switch>
       </Router>
