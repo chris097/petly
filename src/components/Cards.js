@@ -44,12 +44,10 @@ const Cards = ({
             h="full"
             mx="auto"
           >
-          <Image 
-            w="full" 
-            h="165px" 
+          <img
+            style={{ width: "100%", height: "165px", objectFit: "fill"}}
             src={pet?.images[0]} 
             alt="card_image" 
-            objectFit="fill"
           />
           <Flex 
             justifyContent="space-between" 
