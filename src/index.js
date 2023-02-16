@@ -1,18 +1,17 @@
-import React, { Suspense, lazy } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import ReactDOM from 'react-dom';
-import Loading from './components/loading/Loading';
-import { Center } from '@chakra-ui/react';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-const queryClient = new QueryClient();
-const App = lazy(() => import('./App'));
-
-ReactDOM.render(
-  <Suspense fallback={<Center mt="8rem"><Loading color="#0D75FF" size={70} /></Center>}>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  </Suspense>,
-  document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
 
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
