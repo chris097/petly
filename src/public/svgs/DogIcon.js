@@ -21,17 +21,17 @@ const DogIcon = () => (
 <path d="M12.1647 5.48607C13.1002 5.52873 13.0348 6.30245 13.0626 7.12077C13.0903 7.9391 13.0923 12.2518 13.0923 12.9964C13.0923 13.741 13.0626 14.9549 13.0626 14.9549C13.0626 14.9549 12.9853 15.0364 12.793 15.0849C12.6285 15.1256 12.5155 15.1178 12.5155 15.1178C12.5155 15.1178 12.5889 13.551 12.3986 13.2078C12.2083 12.8645 11.6276 12.2227 11.6276 12.2227L11.5979 6.71937L11.2173 6.64568C11.2173 6.64568 11.2431 5.44147 12.1647 5.48607Z" fill="#484C51"/>
 <defs>
 <linearGradient id="paint0_linear_6_125" x1="14.84" y1="15.3427" x2="17.0651" y2="5.80366" gradientUnits="userSpaceOnUse">
-<stop offset="0.258" stop-color="#CA8E53"/>
-<stop offset="0.456" stop-color="#A67352"/>
-<stop offset="0.628" stop-color="#8E6151"/>
-<stop offset="0.734" stop-color="#855A51"/>
+<stop offset="0.258" stopColor="#CA8E53"/>
+<stop offset="0.456" stopColor="#A67352"/>
+<stop offset="0.628" stopColor="#8E6151"/>
+<stop offset="0.734" stopColor="#855A51"/>
 </linearGradient>
 <radialGradient id="paint1_radial_6_125" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(5.66607 1.51895) scale(4.88041 4.77496)">
-<stop offset="0.037" stop-color="#CA8E53"/>
-<stop offset="0.067" stop-color="#C68B53"/>
-<stop offset="0.4" stop-color="#A37152"/>
-<stop offset="0.672" stop-color="#8D6051"/>
-<stop offset="0.847" stop-color="#855A51"/>
+<stop offset="0.037" stopColor="#CA8E53"/>
+<stop offset="0.067" stopColor="#C68B53"/>
+<stop offset="0.4" stopColor="#A37152"/>
+<stop offset="0.672" stopColor="#8D6051"/>
+<stop offset="0.847" stopColor="#855A51"/>
 </radialGradient>
 </defs>
 </svg>

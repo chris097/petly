@@ -3,8 +3,11 @@ import Banner from '../components/Banner'
 import Card from '../components/Card'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import useQueryApi from '../hooks/useQueryApi'
 
 const Home = () => {
+  const { data } = useQueryApi('pets', 'pets');
+  console.log(data)
   return (
     <div>
       <Header />
