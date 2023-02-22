@@ -9,12 +9,12 @@ import { BsFacebook, BsInstagram, BsTwitter, BsLinkedin } from "react-icons/bs";
 const Footer = () => {
   return (
       <div className='bg-lightblue lg:h-[537px] h-auto mt-20'>
-          <div className='flex justify-between'>
+          <div className='md:flex hidden justify-between'>
               <CircleIcon />
               <AngleIcon />
           </div>
           <div className='lg:px-44 px-0'>
-               <div className='flex justify-between relative'>
+               <div className='md:flex block justify-between relative'>
               <LineIcon />
                   <div className='lg:absolute mx-auto flex justify-center w-full -top-20'>
                       <div>

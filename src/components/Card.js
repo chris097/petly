@@ -8,8 +8,8 @@ import { urls } from '../utils/url';
 
 const Card = ({name, breed, state, city, image, id, index}) => {
   return (
-      <div key={index} className='mt-8 mr-8'>
-          <div className='w-[327px] h-[323px] bg-white border border-nextgray p-5'>
+      <div key={index} className='mt-8 mr-8 w-full'>
+          <div className='md:w-[327px] h-[323px] bg-white border border-nextgray p-5'>
               <img src={image} className="bg-cover rounded-xl h-[165px] w-full bg-no-repeat bg-center" alt="dog 5" />
               <div className='flex justify-between items-center mt-3'>
                   <div className='font-inter'>

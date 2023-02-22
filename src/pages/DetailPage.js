@@ -21,12 +21,12 @@ const DetailPage = () => {
     <>
       <div>
         <Header />
-        {isLoading ? <DetailSkeleton /> : <div className='w-1/2 flex justify-center font-inter mx-auto mt-16 flex-col'>
+        {isLoading ? <DetailSkeleton /> : <div className='md:w-1/2 w-[90%] flex justify-center font-inter mx-auto mt-16 flex-col'>
           <div className='flex justify-between items-center'>
             <div className='flex space-x-4 items-center'>
               <div className='w-[80px] h-[80px] rounded-full bg-nextgray flex justify-center items-center text-[36px] font-inter font-medium'>{data?.pets[0]?.name.charAt(0)}</div>
               <div>
-                <h1 className='text-4xl font-medium text-darkpurple'>{data?.pets[0]?.name}</h1>
+                <h1 className='md:text-4xl text-xl font-medium text-darkpurple'>{data?.pets[0]?.name}</h1>
                 <p className='text-corepurple capitalize'>{data?.pets[0]?.breed} {data?.pets[0]?.animal}</p>
               </div>
             </div>

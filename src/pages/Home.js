@@ -52,11 +52,11 @@ const Home = () => {
           <Card />
         </div> */}
         <div className='font-inter'>
-          <h1 className='text-[36px] text-primarygray mt-14'>Browse Though Pet Types</h1>
-          <div className='flex space-x-6'>
+          <h1 className='text-[36px] text-primarygray mt-14 mb-8 md:mb-0'>Browse Though Pet Types</h1>
+          <div className='flex md:space-x-6 flex-wrap'>
             {tags?.map((tag, index) => (
             <button type='button' onClick={() => handlePetTags(index, tag.name)} key={index}>
-                <div className={`w-[118px] h-[108px] ${currentIndex === index && 'border-blue-400 border transition-all ease-in-out duration-75'} mt-10 rounded-2xl bg-nextgray flex justify-center flex-col items-center cursor-pointer`}>
+                <div className={`w-[118px] h-[108px] ${currentIndex === index && 'border-blue-400 border transition-all ease-in-out duration-75'} md:mt-10 m-3 rounded-2xl bg-nextgray flex justify-center flex-col items-center cursor-pointer`}>
               {tag.icon}
                   <p className={`${currentIndex === index && 'text-primaryblue'} text-darkpurple font-light text-lg`}>{tag.name}</p>
             </div>
