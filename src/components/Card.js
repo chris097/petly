@@ -6,9 +6,9 @@ import DogIcon from '../public/svgs/DogIcon';
 import { Link } from 'react-router-dom';
 import { urls } from '../utils/url';
 
-const Card = ({name, breed, state, city, image, id}) => {
+const Card = ({name, breed, state, city, image, id, index}) => {
   return (
-      <div className='mt-8 mr-8'>
+      <div key={index} className='mt-8 mr-8'>
           <div className='w-[327px] h-[323px] bg-white border border-nextgray p-5'>
               <img src={image} className="bg-cover rounded-xl h-[165px] w-full bg-no-repeat bg-center" alt="dog 5" />
               <div className='flex justify-between items-center mt-3'>
@@ -34,4 +34,4 @@ const Card = ({name, breed, state, city, image, id}) => {
   )
 }
 
-export default Card
+export default Card;
